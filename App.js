@@ -35,12 +35,13 @@ const App = () => {
 
 const styles = StyleSheet.create({
   caixa: {
-    textAlign: 'center',
+    alignSelf: 'center',
     width: 50,
     height: 50,
     backgroundColor: '#660066'
   },
   sectionContainer: {
+    flex: 1,
     justifyContent: 'center',
     alignContent: 'center',
     marginTop: 32,
