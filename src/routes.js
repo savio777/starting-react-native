@@ -1,10 +1,23 @@
-import {createAppContainer, createStackNavigator} from 'react-navigation'
+import { createAppContainer, createStackNavigator } from 'react-navigation'
 
-import App from './pages/main'
+import Main from './pages/main'
 
 const AppNavigator = createStackNavigator({
     Home: {
-        screen: App
+        screen: Main,
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: '#660066'
+            },
+            headerTintColor: '#ffffff',
+            headerTitleStyle: {
+                textAlign: 'center',
+                alignSelf: 'center',
+                justifyContent: 'center',
+                flex: 1,
+                textAlignVertical: 'center'
+            }
+        }
     }
 })
 

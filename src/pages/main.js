@@ -6,37 +6,40 @@
  * @flow
  */
 
-import React from 'react';
+import React, { Component } from 'react'
+
 import {
   StyleSheet,
   View,
   Text,
   StatusBar,
-} from 'react-native';
+} from 'react-native'
 
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
+class Main extends Component {
+  static navigationOptions = {
+    title: 'Demo :)'
+  }
 
-const App = () => {
-  return (
-    <>
-      <StatusBar barStyle="light-content" backgroundColor='#660066' />
-      <View style={styles.sectionContainer}>
-        <View style={styles.caixa} />
-        <Text style={styles.sectionTitle}>Boa Noite</Text>
-        <Text style={styles.sectionDescription}>Tudo bem?</Text>
-        <View style={styles.caixa} />
-      </View>
-    </>
-  )
+  render() {
+    return (
+      <>
+        <StatusBar barStyle="light-content" backgroundColor='#660066' />
+        <View style={styles.sectionContainer}>
+          <View style={styles.caixa} />
+          <Text style={styles.sectionTitle}>Boa Noite</Text>
+          <Text style={styles.sectionDescription}>Tudo bem?</Text>
+          <View style={styles.caixa} />
+        </View>
+      </>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
   caixa: {
     alignSelf: 'center',
     width: 120,
-    height: 1,
+    height: 2,
     backgroundColor: '#660066'
   },
   sectionContainer: {
@@ -50,15 +53,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 24,
     fontWeight: '600',
-    color: Colors.black,
   },
   sectionDescription: {
     textAlign: 'center',
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
-    color: Colors.dark,
+    color: '#4d4a4a',
   }
 })
 
-export default App
+export default Main
