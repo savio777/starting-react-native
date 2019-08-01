@@ -8,17 +8,31 @@
 
 import React, { Component } from 'react'
 
+import logo from '../assets/img/logoA.png'
+
 import {
   StyleSheet,
   View,
   Text,
   StatusBar,
+  Image,
+  TouchableOpacity
 } from 'react-native'
 
 class Main extends Component {
-  static navigationOptions = {
-    title: 'Demo :)'
-  }
+  static navigationOptions = (navigation) => ({
+    title: 'Teste :)',
+    headerRight: (
+      <TouchableOpacity onPress={() => navigation.navigate('New')}>
+        <Text style={styles.textoOi}>oi</Text>
+      </TouchableOpacity>
+    ),
+    headerLeft: (
+      <TouchableOpacity onPress={() => navigation.navigate('New')}>
+        <Text style={styles.textoOi}>oi</Text>
+      </TouchableOpacity>
+    )
+  })
 
   render() {
     return (
@@ -26,9 +40,10 @@ class Main extends Component {
         <StatusBar barStyle="light-content" backgroundColor='#660066' />
         <View style={styles.sectionContainer}>
           <View style={styles.caixa} />
+          <Image style={styles.logo} source={logo} />
+          <View style={styles.caixa} />
           <Text style={styles.sectionTitle}>Boa Noite</Text>
           <Text style={styles.sectionDescription}>Tudo bem?</Text>
-          <View style={styles.caixa} />
         </View>
       </>
     )
@@ -36,10 +51,18 @@ class Main extends Component {
 }
 
 const styles = StyleSheet.create({
+  textoOi:{
+    color: '#ffffff'
+  },
+  logo: {
+    width: 120,
+    height: 120,
+    alignSelf: 'center'
+  },
   caixa: {
     alignSelf: 'center',
     width: 120,
-    height: 2,
+    height: 5,
     backgroundColor: '#660066'
   },
   sectionContainer: {
