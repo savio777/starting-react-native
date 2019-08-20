@@ -8,30 +8,18 @@
 
 import React, { Component } from 'react'
 
-import logo from '../assets/img/logoA.png'
-
 import {
   StyleSheet,
   View,
   Text,
   StatusBar,
-  Image,
+  Button,
   TouchableOpacity
 } from 'react-native'
 
 class Main extends Component {
-  static navigationOptions = (navigation) => ({
-    title: 'Teste :)',
-    headerRight: (
-      <TouchableOpacity onPress={() => navigation.navigate('New')}>
-        <Text style={styles.textoOi}>oi</Text>
-      </TouchableOpacity>
-    ),
-    headerLeft: (
-      <TouchableOpacity onPress={() => navigation.navigate('New')}>
-        <Text style={styles.textoOi}>oi</Text>
-      </TouchableOpacity>
-    )
+  static navigationOptions = () => ({
+    title: 'Teste :)'
   })
 
   render() {
@@ -39,11 +27,22 @@ class Main extends Component {
       <>
         <StatusBar barStyle="light-content" backgroundColor='#660066' />
         <View style={styles.sectionContainer}>
-          <View style={styles.caixa} />
-          <Image style={styles.logo} source={logo} />
-          <View style={styles.caixa} />
-          <Text style={styles.sectionTitle}>Boa Noite</Text>
-          <Text style={styles.sectionDescription}>Tudo bem?</Text>
+          <TouchableOpacity
+            style={styles.botao}
+            onPress={() => this.props.navigation.navigate('Login')}>
+            <Text style={styles.textoBotao}>Login</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.botao}
+            onPress={() => this.props.navigation.navigate('Cadastrar')} >
+            <Text style={styles.textoBotao}>Cadastrar</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.baixo}>
+          <Button
+            title='Sobre'
+            onPress={() => this.props.navigation.navigate('Sobre')}
+          />
         </View>
       </>
     )
@@ -51,13 +50,22 @@ class Main extends Component {
 }
 
 const styles = StyleSheet.create({
-  textoOi:{
-    color: '#ffffff'
+  botao: {
+    margin: 5,
   },
-  logo: {
-    width: 120,
-    height: 120,
-    alignSelf: 'center'
+  textoBotao: {
+    backgroundColor: '#660066',
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 24,
+    fontWeight: '600',
+  },
+  baixo: {
+    alignSelf: 'baseline',
+    alignContent: 'center',
+    justifyContent: 'center',
+    marginHorizontal: 180,
+    marginBottom: 10
   },
   caixa: {
     alignSelf: 'center',
